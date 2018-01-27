@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "14728678611",
+    "firebase_url": "https://air-amigos.firebaseio.com",
+    "project_id": "air-amigos",
+    "storage_bucket": "air-amigos.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:14728678611:android:27d8864d0d28025c",
+        "android_client_info": {
+          "package_name": "com.us_man.airbenders"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "14728678611-gkcuutl3k03f6ep9oidsskkq9k4bhujs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJgg6ncwILPAlCW8QQkOfM23bBo_-zX5M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
