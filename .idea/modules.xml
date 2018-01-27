@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AirBenders.iml" filepath="$PROJECT_DIR$/AirBenders.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Air-Benders.iml" filepath="$PROJECT_DIR$/Air-Benders.iml" />
+      <module fileurl="file://C:\Users\suved\workspace\Air-Benders\AirBenders.iml" filepath="C:\Users\suved\workspace\Air-Benders\AirBenders.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
