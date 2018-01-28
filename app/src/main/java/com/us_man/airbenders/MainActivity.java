@@ -28,7 +28,29 @@ public class MainActivity extends AppCompatActivity {
     private Retrofit retrofit;
     public ArrayList<Flight> flight_list;
     public ArrayList<Passenger> passenger_list;
+    public ArrayList<Passenger> sorted_list;
+    public ArrayList<Integer> compared_values;
     public Passenger thisPassenger;
+
+    public void bestFit() {
+        sorted_list = passenger_list;
+        sorted_list.remove(thisPassenger);
+        for(int i = 0; i < sorted_list.size(); i++) {
+            compared_values.add(thisPassenger.compareTo(sorted_list.get(i)));
+        }
+        for(int k = 0; k < sorted_list.size(); k++) {
+            for(int j = 0; j < sorted_list.size(); j++) {
+                if(compared_values.get(j) < compared_values.get(k)) {
+                    int temp = compared_values.get(j);
+                    compared_values.set(j,compared_values.get(k));
+                    compared_values.set(k,temp);
+                    Passenger tempPass = sorted_list.get(j);
+                    sorted_list.set(j,sorted_list.get(k));
+                    sorted_list.set(k,tempPass);
+                }
+            }
+        }
+    }
 
     public void login(View view) {
         EditText mEdit = (EditText)findViewById(R.id.editText);
@@ -228,18 +250,23 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View view)
                     {
                         EditText mEdit = (EditText)findViewById(R.id.textView);
+                        EditText mPassword = (EditText)findViewById(R.id.editText);
+                        String pass = mPassword.getText().toString();
                         String thisEmail = mEdit.getText().toString();
                         boolean foundEntry = false;
-                        for(int i = 0; i < passenger_list.size(); ++i) {
-                            if(thisEmail.equals(passenger_list.get(i).getEmail())) {
-                                thisPassenger = passenger_list.get(i);
-                                foundEntry = true;
+                        if(pass.equals("password")) {
+                            for (int i = 0; i < passenger_list.size(); ++i) {
+                                if (thisEmail.equals(passenger_list.get(i).getEmail())) {
+                                    thisPassenger = passenger_list.get(i);
+                                    foundEntry = true;
+                                }
                             }
                         }
                         if(foundEntry) {
                             startActivity(new Intent(MainActivity.this, profile.class));
                         }
                         else {
+
                         }
                     }
                 });
