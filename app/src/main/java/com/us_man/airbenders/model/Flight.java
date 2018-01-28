@@ -36,6 +36,10 @@ public class Flight {
 
     /*public void addPassenger(Passenger temp) {
         passengers.put(temp, false);
+    }
+
+    public void matchPassenger(Passenger temp) {
+        passengers.replace(temp, true);
     }*/
 
     private void setDay() {
