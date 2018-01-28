@@ -26,7 +26,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainActivity extends AppCompatActivity {
 
     private Retrofit retrofit;
-    public ArrayList<Flight> flight_list;
+    public static ArrayList<Flight> flight_list;
     public static ArrayList<Passenger> passenger_list;
     public static ArrayList<Passenger> sorted_list;
     public static ArrayList<Integer> compared_values;

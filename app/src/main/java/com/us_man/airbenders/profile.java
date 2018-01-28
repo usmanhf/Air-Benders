@@ -86,14 +86,7 @@ public class profile extends AppCompatActivity {
                 });
 
 
-        Button btn = (Button)findViewById(R.id.submit_profile);
 
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(profile.this, Flights.class));
-            }
-        });
 
     }
 }

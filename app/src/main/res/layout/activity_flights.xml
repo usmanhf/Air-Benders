@@ -8,7 +8,7 @@
     android:layout_centerVertical="true"
     android:background="#0078D2"
     android:orientation="vertical"
-    android:padding="24dp"
+    android:padding="30dp"
     tools:context="com.us_man.airbenders.Flights">
     <ScrollView
         android:layout_width="match_parent"

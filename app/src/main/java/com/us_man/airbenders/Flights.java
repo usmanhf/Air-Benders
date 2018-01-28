@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.us_man.airbenders.model.Flight;
+
 public class Flights extends AppCompatActivity {
 
     @Override
@@ -24,17 +26,22 @@ public class Flights extends AppCompatActivity {
         for (int i = 0; i < N; i++) {
             // create a new textview
             final Button rowButton = new Button(this);
+            rowButton.setHeight(200);
+            rowButton.setTextSize(1,24);
+            //rowButton.setBackgroundColor(0xFFFFFFFF);
+
 
             // set some properties of rowTextView or something
-            rowButton.setText("Flight Option #" + i + " "+ );
-            Button btn = (Button)findViewById(i);
+            Flight bob = MainActivity.flight_list.get(i);
+            rowButton.setText("Flight #" + bob.getFlightNumber() + " on " + bob.getDay() + "\nfrom " + bob.getOrigin() + " to " + bob.getDestination());
+            //Button btn = (Button)findViewById(i);
 
-            btn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+            //btn.setOnClickListener(new View.OnClickListener() {
+              //  @Override
+                //public void onClick(View v) {
                   //  startActivity(new Intent(Flights.this, matches.class));
-                }
-            });
+                //}
+            //});
             rowButton.setId(i);
 
             // add the textview to the linearlayout
