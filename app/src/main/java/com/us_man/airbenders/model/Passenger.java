@@ -18,6 +18,10 @@ public class Passenger {
         this.email = email;
     }
 
+    public Passenger() {
+
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -32,6 +36,15 @@ public class Passenger {
 
     public String getEmail() {
         return email;
+    }
+
+    public String toString() {
+        return "Passenger{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", gender='" + gender + '\'' +
+                ", email='" + email + '\'' +
+                "}";
     }
 
 }
