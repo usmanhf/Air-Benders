@@ -33,7 +33,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
-                android:checked="true"
                 android:buttonTint="#C30019"
                 android:text="First Class" />
             <RadioButton
@@ -66,7 +65,6 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
                 android:buttonTint="#C30019"
-                android:checked="true"
                 android:text="Aisle" />
             <RadioButton
                 android:layout_width="match_parent"
@@ -91,7 +89,6 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
                 android:buttonTint="#C30019"
-                android:checked="true"
                 android:text="Talking" />
             <RadioButton
                 android:layout_width="match_parent"
