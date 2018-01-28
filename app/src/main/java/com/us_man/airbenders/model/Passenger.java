@@ -11,7 +11,7 @@ public class Passenger {
     private String gender;
     private String email;
 
-    public Passenger() {
+    public Passenger(String firstName, String lastName, String gender, String email) {
 
     }
 
