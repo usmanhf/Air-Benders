@@ -8,7 +8,6 @@ public class Flight {
 
     private String flightNumber;
 
-
     public Flight() {
 
     }
@@ -20,7 +19,8 @@ public class Flight {
     @Override
     public String toString() {
         return "Flight{" +
-                "flightNumber='" + flightNumber + '\'' +
+                "flightNumber='" + flightNumber + '\''
+                + ", originCity='" +
                 '}';
     }
 }
