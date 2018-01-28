@@ -9,6 +9,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.us_man.airbenders.model.Flight;
 import com.us_man.airbenders.model.Passenger;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     public ArrayList<Passenger> sorted_list;
     public ArrayList<Integer> compared_values;
     public Passenger thisPassenger;
+    public TextView[] tv;
 
     public void bestFit() {
         sorted_list = new ArrayList<Passenger>();
@@ -58,9 +60,47 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
-        for(int i = 0; i < sorted_list.size(); i++) {
-            Log.i("potato", sorted_list.get(i).getFirstName() + " " + compared_values.get(i));
-        }
+
+        int size = sorted_list.size();
+        tv = new TextView[size];
+        TextView temp;
+
+        temp = new TextView(this);
+        temp.setText(1 + " " + sorted_list.get(0).getFirstName() + " " + sorted_list.get(0).getFirstName());
+        tv[0] = temp;
+
+        /*temp = findViewById(R.id.textView2);
+        temp.setText(2 + " " + sorted_list.get(1).getFirstName() + " " + sorted_list.get(1).getFirstName());
+        tv[1] = temp;
+
+        temp = findViewById(R.id.textView3);
+        temp.setText(3 + " " + sorted_list.get(2).getFirstName() + " " + sorted_list.get(2).getFirstName());
+        tv[2] = temp;
+
+        temp = findViewById(R.id.textView4);
+        temp.setText(4 + " " + sorted_list.get(3).getFirstName() + " " + sorted_list.get(3).getFirstName());
+        tv[3] = temp;
+
+        temp = findViewById(R.id.textView5);
+        temp.setText(5 + " " + sorted_list.get(4).getFirstName() + " " + sorted_list.get(4).getFirstName());
+        tv[4] = temp;
+
+        temp = findViewById(R.id.textView6);
+        temp.setText(6 + " " + sorted_list.get(5).getFirstName() + " " + sorted_list.get(5).getFirstName());
+        tv[5] = temp;
+
+        temp = findViewById(R.id.textView7);
+        temp.setText(7 + " " + sorted_list.get(6).getFirstName() + " " + sorted_list.get(6).getFirstName());
+        tv[6] = temp;
+
+        temp = findViewById(R.id.textView8);
+        temp.setText(8 + " " + sorted_list.get(7).getFirstName() + " " + sorted_list.get(7).getFirstName());
+        tv[7] = temp;
+
+        temp = findViewById(R.id.textView9);
+        temp.setText(9 + " " + sorted_list.get(8).getFirstName() + " " + sorted_list.get(8).getFirstName());
+        tv[8] = temp;*/
+
     }
 
     public void login(View view) {
@@ -82,7 +122,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     @Override
-    public void onBackPressed() {}
+    public void onBackPressed() {
+        Log.i("working","working work");
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
