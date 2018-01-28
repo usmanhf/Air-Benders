@@ -19,7 +19,7 @@ import java.util.List;
 public class PassengerAdapter extends RecyclerView.Adapter<PassengerAdapter.ViewHolder> {
 
     private List<Passenger> passengerList;
-    private Context context
+    private Context context;
 
     public PassengerAdapter(Context context, List<Passenger> passengers) {
         passengerList = passengers;

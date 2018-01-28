@@ -26,15 +26,15 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainActivity extends AppCompatActivity {
 
     private Retrofit retrofit;
-    public ArrayList<Flight> flight_list;
-    public ArrayList<Passenger> passenger_list;
-    public ArrayList<Passenger> sorted_list;
-    public ArrayList<Integer> compared_values;
-    public Passenger thisPassenger;
+    public static ArrayList<Flight> flight_list;
+    public static ArrayList<Passenger> passenger_list;
+    public static ArrayList<Passenger> sorted_list;
+    public static ArrayList<Integer> compared_values;
+    public static Passenger thisPassenger;
 
 
 
-    public void bestFit() {
+    public static void bestFit() {
         sorted_list = new ArrayList<Passenger>();
         for(int f = 0; f < passenger_list.size(); f++) {
             if(!passenger_list.get(f).getEmail().equals(thisPassenger.getEmail())) {
@@ -258,7 +258,6 @@ public class MainActivity extends AppCompatActivity {
             public void onFailure(Call<List<Flight>> call, Throwable t) {
             }
         });
-
 
         Button mButton = (Button)findViewById(R.id.button);
         mButton.setOnClickListener(

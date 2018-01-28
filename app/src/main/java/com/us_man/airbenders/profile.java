@@ -71,8 +71,8 @@ public class profile extends AppCompatActivity {
                             MainActivity.thisPassenger.setTalk("no");
                         }
 
-
                         MainActivity.bestFit();
+
                         sort_list = MainActivity.sorted_list;
                         compared_values = MainActivity.compared_values;
                         String s = "";
