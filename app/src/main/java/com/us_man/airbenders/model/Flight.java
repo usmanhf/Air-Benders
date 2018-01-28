@@ -27,7 +27,7 @@ public class Flight {
         return destination;
     }
 
-    public String getArrivalTime() {
+    private String getArrivalTime() {
         return arrivalTime;
     }
 
@@ -50,13 +50,24 @@ public class Flight {
     @Override
     public String toString() {
         setDay();
-        String pass = "";
-        return "Flight{" +
+        String outp = "Flight{" +
                 "flightNumber='" + flightNumber + '\''
                 + ", origin='" + origin + '\''
                 + ", destination='" + destination + '\''
-                + ", day='" + day + '\''
-                + ", passengers='["
-                + '}';
+                + ", day='" + day + '\'';
+            if(passengers.isEmpty()) {
+                outp+= '}';
+            }
+            else {
+                String pass = "";
+                int i = 1;
+                for(Passenger temp: passengers.keySet()) {
+                    pass+= i + ": " + temp.toString() + ",\n";
+                    i++;
+                }
+                outp+= ", passengers='[\n" + pass + "]"
+                        + '}';
+            }
+        return outp;
     }
 }

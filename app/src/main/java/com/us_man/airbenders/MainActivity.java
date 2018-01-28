@@ -22,6 +22,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainActivity extends AppCompatActivity {
 
     private Retrofit retrofit;
+    public ArrayList<Flight> flight_list;
+    public ArrayList<Passenger> passenger_list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +37,8 @@ public class MainActivity extends AppCompatActivity {
                 .baseUrl("https://air-amigos.herokuapp.com")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-
+        flight_list = new ArrayList<Flight>();
+        passenger_list = new ArrayList<Passenger>();
         AAService aaService = retrofit.create(AAService.class);
 
         Call<Passenger> pass0 = aaService.getPassenger("suvedhs@gmail.com");
@@ -43,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Passenger> call, Response<Passenger> response) {
                 Passenger passenger = response.body();
+                passenger_list.add(passenger);
                 Log.d("PASSENGER", passenger.toString());
             }
 
@@ -55,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Passenger> call, Response<Passenger> response) {
                 Passenger passenger = response.body();
+                passenger_list.add(passenger);
                 Log.d("PASSENGER", passenger.toString());
             }
 
@@ -67,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Passenger> call, Response<Passenger> response) {
                 Passenger passenger = response.body();
+                passenger_list.add(passenger);
                 Log.d("PASSENGER", passenger.toString());
             }
 
@@ -79,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Passenger> call, Response<Passenger> response) {
                 Passenger passenger = response.body();
+                passenger_list.add(passenger);
                 Log.d("PASSENGER", passenger.toString());
             }
 
@@ -91,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Passenger> call, Response<Passenger> response) {
                 Passenger passenger = response.body();
+                passenger_list.add(passenger);
                 Log.d("PASSENGER", passenger.toString());
             }
 
@@ -104,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Passenger> call, Response<Passenger> response) {
                 Passenger passenger = response.body();
+                passenger_list.add(passenger);
                 Log.d("PASSENGER", passenger.toString());
             }
 
@@ -116,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Passenger> call, Response<Passenger> response) {
                 Passenger passenger = response.body();
+                passenger_list.add(passenger);
                 Log.d("PASSENGER", passenger.toString());
             }
 
@@ -128,6 +138,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Passenger> call, Response<Passenger> response) {
                 Passenger passenger = response.body();
+                passenger_list.add(passenger);
                 Log.d("PASSENGER", passenger.toString());
             }
 
@@ -140,6 +151,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Passenger> call, Response<Passenger> response) {
                 Passenger passenger = response.body();
+                passenger_list.add(passenger);
                 Log.d("PASSENGER", passenger.toString());
             }
 
@@ -152,6 +164,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Passenger> call, Response<Passenger> response) {
                 Passenger passenger = response.body();
+                passenger_list.add(passenger);
                 Log.d("PASSENGER", passenger.toString());
             }
 
@@ -168,6 +181,12 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<List<Flight>> call, Response<List<Flight>> response) {
                 List<Flight> flights = response.body();
                 for (Flight flight : flights) {
+                    flight_list.add(flight);
+                    if(flight.getFlightNumber().equals("2460")) {
+                        for(Passenger pass: passenger_list) {
+                            flight.addPassenger(pass);
+                        }
+                    }
                     Log.d("FLIGHT", flight.toString());
                 }
             }
