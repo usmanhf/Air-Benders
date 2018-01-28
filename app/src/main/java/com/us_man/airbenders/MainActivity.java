@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Flight>> call, Throwable t) {
-
             }
         });
     }
