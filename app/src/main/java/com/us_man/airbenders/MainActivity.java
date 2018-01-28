@@ -3,6 +3,8 @@ package com.us_man.airbenders;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.us_man.airbenders.model.Flight;
 import com.us_man.airbenders.network.AAService;
