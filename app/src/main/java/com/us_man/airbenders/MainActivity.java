@@ -1,10 +1,14 @@
 package com.us_man.airbenders;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.us_man.airbenders.model.Flight;
 import com.us_man.airbenders.model.Passenger;
@@ -24,8 +28,48 @@ public class MainActivity extends AppCompatActivity {
     private Retrofit retrofit;
     public ArrayList<Flight> flight_list;
     public ArrayList<Passenger> passenger_list;
+    public ArrayList<Passenger> sorted_list;
+    public ArrayList<Integer> compared_values;
     public Passenger thisPassenger;
 
+    public void bestFit() {
+        sorted_list = passenger_list;
+        sorted_list.remove(thisPassenger);
+        for(int i = 0; i < sorted_list.size(); i++) {
+            compared_values.add(thisPassenger.compareTo(sorted_list.get(i)));
+        }
+        for(int k = 0; k < sorted_list.size(); k++) {
+            for(int j = 0; j < sorted_list.size(); j++) {
+                if(compared_values.get(j) < compared_values.get(k)) {
+                    int temp = compared_values.get(j);
+                    compared_values.set(j,compared_values.get(k));
+                    compared_values.set(k,temp);
+                    Passenger tempPass = sorted_list.get(j);
+                    sorted_list.set(j,sorted_list.get(k));
+                    sorted_list.set(k,tempPass);
+                }
+            }
+        }
+    }
+
+    public void login(View view) {
+        EditText mEdit = (EditText)findViewById(R.id.editText);
+        String thisEmail = mEdit.toString();
+        boolean foundEntry = false;
+        for(int i = 0; i < passenger_list.size(); ++i) {
+            if(thisEmail.equals(passenger_list.get(i).getEmail())) {
+                thisPassenger = passenger_list.get(i);
+                foundEntry = true;
+                Log.d("found it!","found it again");
+            }
+        }
+        if(foundEntry) {
+            startActivity(new Intent(MainActivity.this, profile.class));
+        }
+        else {
+            Log.i("howdy", "didn't find it");
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
         flight_list = new ArrayList<Flight>();
         passenger_list = new ArrayList<Passenger>();
         AAService aaService = retrofit.create(AAService.class);
+
 
         Call<Passenger> pass0 = aaService.getPassenger("suvedhs@gmail.com");
         pass0.enqueue(new Callback<Passenger>() {
@@ -196,5 +241,35 @@ public class MainActivity extends AppCompatActivity {
             public void onFailure(Call<List<Flight>> call, Throwable t) {
             }
         });
+
+
+        Button mButton = (Button)findViewById(R.id.button);
+        mButton.setOnClickListener(
+                new View.OnClickListener()
+                {
+                    public void onClick(View view)
+                    {
+                        EditText mEdit = (EditText)findViewById(R.id.textView);
+                        EditText mPassword = (EditText)findViewById(R.id.editText);
+                        String pass = mPassword.getText().toString();
+                        String thisEmail = mEdit.getText().toString();
+                        boolean foundEntry = false;
+                        if(pass.equals("password")) {
+                            for (int i = 0; i < passenger_list.size(); ++i) {
+                                if (thisEmail.equals(passenger_list.get(i).getEmail())) {
+                                    thisPassenger = passenger_list.get(i);
+                                    foundEntry = true;
+                                }
+                            }
+                        }
+                        if(foundEntry) {
+                            startActivity(new Intent(MainActivity.this, profile.class));
+                        }
+                        else {
+
+                        }
+                    }
+                });
+
     }
 }
