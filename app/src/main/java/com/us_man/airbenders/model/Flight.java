@@ -34,7 +34,7 @@ public class Flight {
         return arrivalTime;
     }
 
-    public void
+
 
     private void setDay() {
         day = getArrivalTime().substring(0, 10);
