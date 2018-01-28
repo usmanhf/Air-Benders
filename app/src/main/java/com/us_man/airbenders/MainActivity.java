@@ -28,11 +28,11 @@ public class MainActivity extends AppCompatActivity {
     private Retrofit retrofit;
     public ArrayList<Flight> flight_list;
     public ArrayList<Passenger> passenger_list;
-    public ArrayList<Passenger> sorted_list;
-    public ArrayList<Integer> compared_values;
+    //public ArrayList<Passenger> sorted_list;
+    //public ArrayList<Integer> compared_values;
     public Passenger thisPassenger;
 
-    public void bestFit() {
+    /*public void bestFit() {
         sorted_list = new ArrayList<Passenger>();
         for(int f = 0; f < passenger_list.size(); f++) {
             if(!passenger_list.get(f).getEmail().equals(thisPassenger.getEmail())) {
@@ -42,9 +42,6 @@ public class MainActivity extends AppCompatActivity {
         compared_values = new ArrayList<Integer>();
         for(int i = 0; i < sorted_list.size(); i++) {
             compared_values.add(thisPassenger.compareTo(sorted_list.get(i)));
-        }
-        for(int i = 0; i < sorted_list.size(); i++) {
-            Log.i("potato", sorted_list.get(i).getFirstName() + " " + compared_values.get(i));
         }
         for(int k = 0; k < sorted_list.size(); k++) {
             int min = compared_values.get(k);
@@ -63,11 +60,7 @@ public class MainActivity extends AppCompatActivity {
             sorted_list.set(k, sorted_list.get(minIndex));
             sorted_list.set(minIndex, tempPass);
         }
-
-        for(int i = 0; i < sorted_list.size(); i++) {
-            Log.i("potato", sorted_list.get(i).getFirstName() + " " + compared_values.get(i));
-        }
-    }
+    }*/
 
     public void login(View view) {
         EditText mEdit = (EditText)findViewById(R.id.editText);
@@ -247,10 +240,8 @@ public class MainActivity extends AppCompatActivity {
                 List<Flight> flights = response.body();
                 for (Flight flight : flights) {
                     flight_list.add(flight);
-                    if(flight.getFlightNumber().equals("2460")) {
-                        for(Passenger pass: passenger_list) {
-                            flight.addPassenger(pass);
-                        }
+                    for(Passenger pass: passenger_list) {
+                        flight.addPassenger(pass);
                     }
                     Log.d("FLIGHT", flight.toString());
                 }
@@ -285,7 +276,7 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                         if(foundEntry && correctPass) {
-                            bestFit();
+                            //bestFit();
                             //Log.i("potato", "howdy " + passenger_list.size());
                             startActivity(new Intent(MainActivity.this, profile.class));
                         }
