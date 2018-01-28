@@ -2,9 +2,6 @@ package com.us_man.airbenders.model;
 
 import java.util.HashMap;
 
-/**
- * Created by suved on 1/27/2018.
- */
 
 public class Flight {
 
@@ -34,7 +31,9 @@ public class Flight {
         return arrivalTime;
     }
 
+
     public void addPassenger(Passenger temp) {
+
         passengers.put(temp, false);
     }
 
@@ -42,6 +41,7 @@ public class Flight {
         passengers.remove(temp);
         passengers.put(temp, true);
     }
+
 
     private void setDay() {
         day = getArrivalTime().substring(0, 10);
