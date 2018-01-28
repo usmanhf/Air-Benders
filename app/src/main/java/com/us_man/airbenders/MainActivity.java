@@ -27,29 +27,40 @@ public class MainActivity extends AppCompatActivity {
 
     private Retrofit retrofit;
     public ArrayList<Flight> flight_list;
-    public ArrayList<Passenger> passenger_list;
-    public ArrayList<Passenger> sorted_list;
-    public ArrayList<Integer> compared_values;
-    public Passenger thisPassenger;
+    public static ArrayList<Passenger> passenger_list;
+    public static ArrayList<Passenger> sorted_list;
+    public static ArrayList<Integer> compared_values;
+    public static Passenger thisPassenger;
 
 
-    public void bestFit() {
-        sorted_list = passenger_list;
-        sorted_list.remove(thisPassenger);
+    public static void bestFit() {
+        sorted_list = new ArrayList<Passenger>();
+        for(int f = 0; f < passenger_list.size(); f++) {
+            if(!passenger_list.get(f).getEmail().equals(thisPassenger.getEmail())) {
+                sorted_list.add(passenger_list.get(f));
+            }
+        }
+        compared_values = new ArrayList<Integer>();
+
         for(int i = 0; i < sorted_list.size(); i++) {
             compared_values.add(thisPassenger.compareTo(sorted_list.get(i)));
         }
         for(int k = 0; k < sorted_list.size(); k++) {
-            for(int j = 0; j < sorted_list.size(); j++) {
-                if(compared_values.get(j) < compared_values.get(k)) {
-                    int temp = compared_values.get(j);
-                    compared_values.set(j,compared_values.get(k));
-                    compared_values.set(k,temp);
-                    Passenger tempPass = sorted_list.get(j);
-                    sorted_list.set(j,sorted_list.get(k));
-                    sorted_list.set(k,tempPass);
+            int min = compared_values.get(k);
+            int minIndex = k;
+            for (int j = k+1; j < sorted_list.size(); j++) {
+
+                if (compared_values.get(j) > min) {
+                    min = compared_values.get(j);
+                    minIndex = j;
                 }
             }
+            int temp = compared_values.get(k);
+            compared_values.set(minIndex, temp);
+            compared_values.set(k, min);
+            Passenger tempPass = sorted_list.get(k);
+            sorted_list.set(k, sorted_list.get(minIndex));
+            sorted_list.set(minIndex, tempPass);
         }
     }
 
@@ -71,6 +82,8 @@ public class MainActivity extends AppCompatActivity {
             Log.i("howdy", "didn't find it");
         }
     }
+    @Override
+    public void onBackPressed() {}
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -229,10 +242,8 @@ public class MainActivity extends AppCompatActivity {
                 List<Flight> flights = response.body();
                 for (Flight flight : flights) {
                     flight_list.add(flight);
-                    if(flight.getFlightNumber().equals("2460")) {
-                        for(Passenger pass: passenger_list) {
-                            flight.addPassenger(pass);
-                        }
+                    for(Passenger pass: passenger_list) {
+                        flight.addPassenger(pass);
                     }
                     Log.d("FLIGHT", flight.toString());
                 }
@@ -255,19 +266,30 @@ public class MainActivity extends AppCompatActivity {
                         String pass = mPassword.getText().toString();
                         String thisEmail = mEdit.getText().toString();
                         boolean foundEntry = false;
+                        boolean correctPass = false;
                         if(pass.equals("password")) {
-                            for (int i = 0; i < passenger_list.size(); ++i) {
-                                if (thisEmail.equals(passenger_list.get(i).getEmail())) {
-                                    thisPassenger = passenger_list.get(i);
-                                    foundEntry = true;
-                                }
+                            correctPass = true;
+                        }
+                        for (int i = 0; i < passenger_list.size(); ++i) {
+                            if (thisEmail.equals(passenger_list.get(i).getEmail())) {
+                                thisPassenger = passenger_list.get(i);
+                                foundEntry = true;
                             }
                         }
-                        if(foundEntry) {
+
+                        if(foundEntry && correctPass) {
+                            //bestFit();
+                            //Log.i("potato", "howdy " + passenger_list.size());
                             startActivity(new Intent(MainActivity.this, profile.class));
                         }
                         else {
-
+                            //warning message
+                            if(!foundEntry) {
+                                mEdit.setError("Incorrect Email");
+                            }
+                            else {
+                                mPassword.setError("Incorrect Password");
+                            }
                         }
                     }
                 });

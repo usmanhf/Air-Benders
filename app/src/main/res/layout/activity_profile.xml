@@ -8,8 +8,8 @@
     android:layout_centerVertical="true"
     android:background="#0078D2"
     android:orientation="vertical"
-    android:paddingHorizontal="48dp"
-    android:paddingVertical="100dp"
+    android:paddingHorizontal="24dp"
+    android:paddingVertical="50dp"
     tools:context="com.us_man.airbenders.profile">
 
     <LinearLayout
@@ -18,57 +18,99 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:orientation="vertical">
+        <TextView
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:text="What class are you flying?" />
         <RadioGroup
-            android:orientation="horizontal"
+            android:layout_margin="5dp"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <RadioButton
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:buttonTint="#C30019"
                 android:text="First Class" />
             <RadioButton
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:buttonTint="#C30019"
                 android:text="Business"/>
             <RadioButton
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:buttonTint="#C30019"
                 android:text="Economy"/>
+
         </RadioGroup>
+        <TextView
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:text="Which do you prefer?" />
         <RadioGroup
-            android:orientation="horizontal"
+            android:layout_margin="5dp"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <RadioButton
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:buttonTint="#C30019"
                 android:text="Aisle" />
             <RadioButton
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:buttonTint="#C30019"
+                android:textSize="18dp"
                 android:text="Window"/>
         </RadioGroup>
+        <TextView
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:text="Do you prefer to talking or not?" />
         <RadioGroup
-            android:orientation="horizontal"
+            android:layout_margin="5dp"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <RadioButton
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sleeping" />
+                android:textSize="18dp"
+                android:buttonTint="#C30019"
+                android:text="Talking" />
             <RadioButton
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Talking"/>
+                android:textSize="18dp"
+                android:buttonTint="#C30019"
+                android:text="Not talking"/>
 
         </RadioGroup>
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
+        <TextView
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Submit" />
+            android:text=" " />
+        <Button
+            android:id="@+id/submit_profile"
+            style="@style/button_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:text="Submit"
+            android:onClick="make_profile"/>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

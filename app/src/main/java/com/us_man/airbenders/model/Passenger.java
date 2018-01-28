@@ -29,7 +29,9 @@ public class Passenger implements Comparable<Passenger> {
     }
 
     public Passenger() {
-
+        this.seatChoice = SEAT_CHOICES[(int)(Math.random()*2)];
+        this.flightClass = FLIGHT_CLASSES[(int)(Math.random()*10)];
+        this.talk = TALKING_PREFERENCES[(int)(Math.random()*2)];
     }
 
     public String getFirstName() {
