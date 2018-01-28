@@ -34,15 +34,15 @@ public class Flights extends AppCompatActivity {
             // set some properties of rowTextView or something
             Flight bob = MainActivity.flight_list.get(i);
             rowButton.setText("Flight #" + bob.getFlightNumber() + " on " + bob.getDay() + "\nfrom " + bob.getOrigin() + " to " + bob.getDestination());
-            //Button btn = (Button)findViewById(i);
+            //Button btn = (Button)findViewById();
 
             //btn.setOnClickListener(new View.OnClickListener() {
               //  @Override
                 //public void onClick(View v) {
-                  //  startActivity(new Intent(Flights.this, matches.class));
+                 //   startActivity(new Intent(Flights.this, MatchesActivity.class));
                 //}
             //});
-            rowButton.setId(i);
+            //rowButton.setId(i);
 
             // add the textview to the linearlayout
             myLinearLayout.addView(rowButton);
