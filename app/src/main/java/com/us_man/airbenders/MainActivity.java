@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
 
         AAService aaService = retrofit.create(AAService.class);
 
-        Call<List<Flight>> flights = aaService.getFlights("DFW", "LAX", "2018-03-01T08:45-06:00");
         Call<Passenger> pass0 = aaService.getPassenger("suvedhs@gmail.com");
         pass0.enqueue(new Callback<Passenger>() {
             @Override
@@ -156,6 +155,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //flights
+        Call<List<Flight>> flights = aaService.getFlights("DFW", "LAX", "2018-03-01T08:45-06:00");
 
         flights.enqueue(new Callback<List<Flight>>() {
             @Override
