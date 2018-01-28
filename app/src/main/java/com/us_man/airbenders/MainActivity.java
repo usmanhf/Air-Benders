@@ -9,7 +9,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.us_man.airbenders.model.Flight;
 import com.us_man.airbenders.model.Passenger;
@@ -27,23 +26,15 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainActivity extends AppCompatActivity {
 
     private Retrofit retrofit;
-<<<<<<< HEAD
     public ArrayList<Flight> flight_list;
     public ArrayList<Passenger> passenger_list;
     public ArrayList<Passenger> sorted_list;
     public ArrayList<Integer> compared_values;
     public Passenger thisPassenger;
-    public TextView[] tv;
-=======
-    public static ArrayList<Flight> flight_list;
-    public static ArrayList<Passenger> passenger_list;
-    public static ArrayList<Passenger> sorted_list;
-    public static ArrayList<Integer> compared_values;
-    public static Passenger thisPassenger;
->>>>>>> 85135386fa815f0ab1e2016d002985388744d949
 
 
-    public static void bestFit() {
+
+    public void bestFit() {
         sorted_list = new ArrayList<Passenger>();
         for(int f = 0; f < passenger_list.size(); f++) {
             if(!passenger_list.get(f).getEmail().equals(thisPassenger.getEmail())) {
