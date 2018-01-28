@@ -1,56 +1,73 @@
-<<<<<<< HEAD
 package com.us_man.airbenders.model;
 
-/**
- * Created by suved on 1/27/2018.
- */
+import java.util.HashMap;
+
 
 public class Flight {
 
     private String flightNumber;
-    private String originCity;
+    private String origin;
+    private String destination;
+    private String arrivalTime;
+    private String day;
+    private HashMap<Passenger, Boolean> passengers = new HashMap<Passenger, Boolean>();
 
     public Flight() {
-        
     }
 
     public String getFlightNumber() {
         return flightNumber;
     }
 
+    public String getOrigin() {
+        return origin;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    private String getArrivalTime() {
+        return arrivalTime;
+    }
+
+
+    public void addPassenger(Passenger temp) {
+
+        passengers.put(temp, false);
+    }
+
+    public void matchPassenger(Passenger temp) {
+        passengers.remove(temp);
+        passengers.put(temp, true);
+    }
+
+
+    private void setDay() {
+        day = getArrivalTime().substring(0, 10);
+    }
+
     @Override
     public String toString() {
-        return "Flight{" +
+        setDay();
+        String outp = "Flight{" +
                 "flightNumber='" + flightNumber + '\''
-                + ", originCity='" + originCity + '\'' +
-                '}';
+                + ", origin='" + origin + '\''
+                + ", destination='" + destination + '\''
+                + ", day='" + day + '\'';
+            if(passengers.isEmpty()) {
+                outp+= '}';
+            }
+            else {
+                String pass = "";
+                int i = 1;
+                for(Passenger temp: passengers.keySet()) {
+                    pass+= i + ": " + temp.toString() + ",\n";
+                    i++;
+                }
+                outp+= ", passengers='[\n" + pass + "]"
+                        + '}';
+            }
+        return outp;
     }
 }
-=======
-package com.us_man.airbenders.model;
-
-/**
- * Created by suved on 1/27/2018.
- */
-
-public class Flight {
-
-    private String flightNumber;
-
-    public Flight() {
-
-    }
-
-    public String getFlightNumber() {
-        return flightNumber;
-    }
-
-    @Override
-    public String toString() {
-        return "Flight{" +
-                "flightNumber='" + flightNumber + '\''
-                + ", originCity='" +
-                '}';
-    }
-}
->>>>>>> 9d8e12d94f7cbbe8bf8516fbea77b92126ce5a2c
