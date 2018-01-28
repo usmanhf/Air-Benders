@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         retrofit = new Retrofit.Builder()
-                .baseUrl("https://air-bender.herokuapp.com")
+                .baseUrl("https://air-amigos.herokuapp.com")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
