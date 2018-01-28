@@ -33,22 +33,33 @@ public class MainActivity extends AppCompatActivity {
     public Passenger thisPassenger;
 
     public void bestFit() {
-        sorted_list = passenger_list;
-        sorted_list.remove(thisPassenger);
+        sorted_list = new ArrayList<Passenger>();
+        for(int f = 0; f < passenger_list.size(); f++) {
+            if(!passenger_list.get(f).getEmail().equals(thisPassenger.getEmail())) {
+                sorted_list.add(passenger_list.get(f));
+            }
+        }
+        compared_values = new ArrayList<Integer>();
         for(int i = 0; i < sorted_list.size(); i++) {
             compared_values.add(thisPassenger.compareTo(sorted_list.get(i)));
         }
+        for(int i = 0; i < sorted_list.size(); i++) {
+            Log.i("potato", sorted_list.get(i).getFirstName() + " " + compared_values.get(i));
+        }
         for(int k = 0; k < sorted_list.size(); k++) {
-            for(int j = 0; j < sorted_list.size(); j++) {
-                if(compared_values.get(j) < compared_values.get(k)) {
+            for (int j = k+1; j < sorted_list.size(); j++) {
+                if (compared_values.get(j) < compared_values.get(k)) {
                     int temp = compared_values.get(j);
-                    compared_values.set(j,compared_values.get(k));
-                    compared_values.set(k,temp);
+                    compared_values.set(j, compared_values.get(k));
+                    compared_values.set(k, temp);
                     Passenger tempPass = sorted_list.get(j);
-                    sorted_list.set(j,sorted_list.get(k));
-                    sorted_list.set(k,tempPass);
+                    sorted_list.set(j, sorted_list.get(k));
+                    sorted_list.set(k, tempPass);
                 }
             }
+        }
+        for(int i = 0; i < sorted_list.size(); i++) {
+            Log.i("potato", sorted_list.get(i).getFirstName() + " " + compared_values.get(i));
         }
     }
 
@@ -254,19 +265,30 @@ public class MainActivity extends AppCompatActivity {
                         String pass = mPassword.getText().toString();
                         String thisEmail = mEdit.getText().toString();
                         boolean foundEntry = false;
+                        boolean correctPass = false;
                         if(pass.equals("password")) {
-                            for (int i = 0; i < passenger_list.size(); ++i) {
-                                if (thisEmail.equals(passenger_list.get(i).getEmail())) {
-                                    thisPassenger = passenger_list.get(i);
-                                    foundEntry = true;
-                                }
+                            correctPass = true;
+                        }
+                        for (int i = 0; i < passenger_list.size(); ++i) {
+                            if (thisEmail.equals(passenger_list.get(i).getEmail())) {
+                                thisPassenger = passenger_list.get(i);
+                                foundEntry = true;
                             }
                         }
-                        if(foundEntry) {
+
+                        if(foundEntry && correctPass) {
+                            bestFit();
+                            //Log.i("potato", "howdy " + passenger_list.size());
                             startActivity(new Intent(MainActivity.this, profile.class));
                         }
                         else {
-
+                            //warning message
+                            if(!foundEntry) {
+                                mEdit.setError("Incorrect Email");
+                            }
+                            else {
+                                mPassword.setError("Incorrect Password");
+                            }
                         }
                     }
                 });
