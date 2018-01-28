@@ -23,7 +23,7 @@ public class Flights extends AppCompatActivity {
             final TextView rowTextView = new TextView(this);
 
             // set some properties of rowTextView or something
-            rowTextView.setText("This is row #" + i);
+            rowTextView.setText("Flight Option #" + i);
 
             // add the textview to the linearlayout
             myLinearLayout.addView(rowTextView);
