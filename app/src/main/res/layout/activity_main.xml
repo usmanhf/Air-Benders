@@ -28,12 +28,12 @@
         <EditText
             android:id="@+id/textView"
             style="@style/editText_style"
-            android:text="Email" />
+            android:hint="Email" />
 
         <EditText
             android:id="@+id/editText"
             style="@style/editText_style"
-            android:text="Password"
+            android:hint="Password"
             android:inputType="textPassword" />
 
         <Button
@@ -42,6 +42,5 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Submit"/>
-            //android:onClick="Flights"
     </LinearLayout>
 </RelativeLayout>
