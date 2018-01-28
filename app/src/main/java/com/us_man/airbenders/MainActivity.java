@@ -9,7 +9,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.us_man.airbenders.model.Flight;
 import com.us_man.airbenders.model.Passenger;
@@ -36,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    public static void bestFit() {
+    public void bestFit() {
         sorted_list = new ArrayList<Passenger>();
         for(int f = 0; f < passenger_list.size(); f++) {
             if(!passenger_list.get(f).getEmail().equals(thisPassenger.getEmail())) {
