@@ -12,11 +12,14 @@
     tools:context="com.us_man.airbenders.Flights">
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/">
-        <TextView
+        android:layout_height="match_parent">
+        //android:id=""
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/flightList">
+        </LinearLayout>
     </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

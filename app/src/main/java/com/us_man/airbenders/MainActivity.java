@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     public ArrayList<Integer> compared_values;
     public Passenger thisPassenger;
 
+
     public void bestFit() {
         sorted_list = passenger_list;
         sorted_list.remove(thisPassenger);
