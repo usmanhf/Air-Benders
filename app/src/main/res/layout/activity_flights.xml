@@ -4,6 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true"
+    android:background="#0078D2"
+    android:orientation="vertical"
+    android:padding="30dp"
     tools:context="com.us_man.airbenders.Flights">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        //android:id=""
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/flightList">
+        </LinearLayout>
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

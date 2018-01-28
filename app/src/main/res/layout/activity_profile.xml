@@ -27,6 +27,7 @@
         <RadioGroup
             android:layout_margin="5dp"
             android:orientation="vertical"
+            android:id="@+id/group1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <RadioButton
@@ -58,6 +59,7 @@
         <RadioGroup
             android:layout_margin="5dp"
             android:orientation="vertical"
+            android:id="@+id/group2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <RadioButton
@@ -83,6 +85,7 @@
             android:layout_margin="5dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
+            android:id="@+id/group3"
             android:layout_height="wrap_content">
             <RadioButton
                 android:layout_width="match_parent"
@@ -104,12 +107,13 @@
             android:layout_height="wrap_content"
             android:text=" " />
         <Button
-            android:id="@+id/button"
+            android:id="@+id/submit_profile"
             style="@style/button_style"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18dp"
-            android:text="Submit"/>
+            android:text="Submit"
+            />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

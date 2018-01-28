@@ -62,6 +62,18 @@ public class Passenger implements Comparable<Passenger> {
         return talk;
     }
 
+    public void setSeatChoice(String s) {
+        seatChoice = s;
+    }
+
+    public void setFlightClass(String s) {
+        flightClass = s;
+    }
+
+    public void setTalk(String s) {
+        talk = s;
+    }
+
     public int compareTo(Passenger p){
         int comparison = 0;
         if (this.talk.equals(p.talk)){

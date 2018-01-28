@@ -27,14 +27,23 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainActivity extends AppCompatActivity {
 
     private Retrofit retrofit;
+<<<<<<< HEAD
     public ArrayList<Flight> flight_list;
     public ArrayList<Passenger> passenger_list;
     public ArrayList<Passenger> sorted_list;
     public ArrayList<Integer> compared_values;
     public Passenger thisPassenger;
     public TextView[] tv;
+=======
+    public static ArrayList<Flight> flight_list;
+    public static ArrayList<Passenger> passenger_list;
+    public static ArrayList<Passenger> sorted_list;
+    public static ArrayList<Integer> compared_values;
+    public static Passenger thisPassenger;
+>>>>>>> 85135386fa815f0ab1e2016d002985388744d949
 
-    public void bestFit() {
+
+    public static void bestFit() {
         sorted_list = new ArrayList<Passenger>();
         for(int f = 0; f < passenger_list.size(); f++) {
             if(!passenger_list.get(f).getEmail().equals(thisPassenger.getEmail())) {
@@ -42,65 +51,28 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         compared_values = new ArrayList<Integer>();
+
         for(int i = 0; i < sorted_list.size(); i++) {
             compared_values.add(thisPassenger.compareTo(sorted_list.get(i)));
         }
-        for(int i = 0; i < sorted_list.size(); i++) {
-            Log.i("potato", sorted_list.get(i).getFirstName() + " " + compared_values.get(i));
-        }
         for(int k = 0; k < sorted_list.size(); k++) {
+            int min = compared_values.get(k);
+            int minIndex = k;
             for (int j = k+1; j < sorted_list.size(); j++) {
-                if (compared_values.get(j) < compared_values.get(k)) {
-                    int temp = compared_values.get(j);
-                    compared_values.set(j, compared_values.get(k));
-                    compared_values.set(k, temp);
-                    Passenger tempPass = sorted_list.get(j);
-                    sorted_list.set(j, sorted_list.get(k));
-                    sorted_list.set(k, tempPass);
+
+                if (compared_values.get(j) > min) {
+                    min = compared_values.get(j);
+                    minIndex = j;
                 }
             }
+
+            int temp = compared_values.get(k);
+            compared_values.set(minIndex, temp);
+            compared_values.set(k, min);
+            Passenger tempPass = sorted_list.get(k);
+            sorted_list.set(k, sorted_list.get(minIndex));
+            sorted_list.set(minIndex, tempPass);
         }
-
-        int size = sorted_list.size();
-        tv = new TextView[size];
-        TextView temp;
-
-        temp = new TextView(this);
-        temp.setText(1 + " " + sorted_list.get(0).getFirstName() + " " + sorted_list.get(0).getFirstName());
-        tv[0] = temp;
-
-        /*temp = findViewById(R.id.textView2);
-        temp.setText(2 + " " + sorted_list.get(1).getFirstName() + " " + sorted_list.get(1).getFirstName());
-        tv[1] = temp;
-
-        temp = findViewById(R.id.textView3);
-        temp.setText(3 + " " + sorted_list.get(2).getFirstName() + " " + sorted_list.get(2).getFirstName());
-        tv[2] = temp;
-
-        temp = findViewById(R.id.textView4);
-        temp.setText(4 + " " + sorted_list.get(3).getFirstName() + " " + sorted_list.get(3).getFirstName());
-        tv[3] = temp;
-
-        temp = findViewById(R.id.textView5);
-        temp.setText(5 + " " + sorted_list.get(4).getFirstName() + " " + sorted_list.get(4).getFirstName());
-        tv[4] = temp;
-
-        temp = findViewById(R.id.textView6);
-        temp.setText(6 + " " + sorted_list.get(5).getFirstName() + " " + sorted_list.get(5).getFirstName());
-        tv[5] = temp;
-
-        temp = findViewById(R.id.textView7);
-        temp.setText(7 + " " + sorted_list.get(6).getFirstName() + " " + sorted_list.get(6).getFirstName());
-        tv[6] = temp;
-
-        temp = findViewById(R.id.textView8);
-        temp.setText(8 + " " + sorted_list.get(7).getFirstName() + " " + sorted_list.get(7).getFirstName());
-        tv[7] = temp;
-
-        temp = findViewById(R.id.textView9);
-        temp.setText(9 + " " + sorted_list.get(8).getFirstName() + " " + sorted_list.get(8).getFirstName());
-        tv[8] = temp;*/
-
     }
 
     public void login(View view) {
@@ -284,10 +256,8 @@ public class MainActivity extends AppCompatActivity {
                 List<Flight> flights = response.body();
                 for (Flight flight : flights) {
                     flight_list.add(flight);
-                    if(flight.getFlightNumber().equals("2460")) {
-                        for(Passenger pass: passenger_list) {
-                            flight.addPassenger(pass);
-                        }
+                    for(Passenger pass: passenger_list) {
+                        flight.addPassenger(pass);
                     }
                     Log.d("FLIGHT", flight.toString());
                 }
@@ -322,7 +292,7 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                         if(foundEntry && correctPass) {
-                            bestFit();
+                            //bestFit();
                             //Log.i("potato", "howdy " + passenger_list.size());
                             startActivity(new Intent(MainActivity.this, profile.class));
                         }

@@ -47,6 +47,10 @@ public class Flight {
         day = getArrivalTime().substring(0, 10);
     }
 
+    public String getDay() {
+        return day;
+    }
+
     @Override
     public String toString() {
         setDay();
