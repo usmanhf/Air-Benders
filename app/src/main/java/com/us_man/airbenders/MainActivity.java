@@ -9,6 +9,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.us_man.airbenders.model.Flight;
 import com.us_man.airbenders.model.Passenger;
@@ -26,11 +27,20 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainActivity extends AppCompatActivity {
 
     private Retrofit retrofit;
+<<<<<<< HEAD
+    public ArrayList<Flight> flight_list;
+    public ArrayList<Passenger> passenger_list;
+    public ArrayList<Passenger> sorted_list;
+    public ArrayList<Integer> compared_values;
+    public Passenger thisPassenger;
+    public TextView[] tv;
+=======
     public static ArrayList<Flight> flight_list;
     public static ArrayList<Passenger> passenger_list;
     public static ArrayList<Passenger> sorted_list;
     public static ArrayList<Integer> compared_values;
     public static Passenger thisPassenger;
+>>>>>>> 85135386fa815f0ab1e2016d002985388744d949
 
 
     public static void bestFit() {
@@ -55,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
                     minIndex = j;
                 }
             }
+
             int temp = compared_values.get(k);
             compared_values.set(minIndex, temp);
             compared_values.set(k, min);
@@ -83,7 +94,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     @Override
-    public void onBackPressed() {}
+    public void onBackPressed() {
+        Log.i("working","working work");
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
