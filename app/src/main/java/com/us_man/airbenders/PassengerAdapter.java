@@ -12,9 +12,7 @@ import com.us_man.airbenders.model.Passenger;
 
 import java.util.List;
 
-/**
- * Created by Humza Jaffri on 1/28/2018.
- */
+
 
 public class PassengerAdapter extends RecyclerView.Adapter<PassengerAdapter.ViewHolder> {
 

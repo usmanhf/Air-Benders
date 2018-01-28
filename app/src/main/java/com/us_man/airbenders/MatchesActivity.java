@@ -22,13 +22,13 @@ public class MatchesActivity extends AppCompatActivity {
         recyclerView = (RecyclerView)findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        List<Passenger> passengers = new ArrayList<>();
+        /*List<Passenger> passengers = new ArrayList<>();
         passengers.add(new Passenger("Humza", "Jaffri", "Male", "humzajaffri@gmail.com"));
         passengers.add(new Passenger("Usman", "Williams", "Male", ""));
         passengers.add(new Passenger("Suvedh", "Johnson", "Male", ""));
         passengers.add(new Passenger("John", "Smith", "Male", ""));
-        passengers.add(new Passenger("Jerry", "Wilson", "Male", ""));
-        passengerAdapter = new PassengerAdapter(this, passengers);
+        passengers.add(new Passenger("Jerry", "Wilson", "Male", ""));*/
+        passengerAdapter = new PassengerAdapter(this, MainActivity.sorted_list);
         recyclerView.setAdapter(passengerAdapter);
         passengerAdapter.notifyDataSetChanged();
     }
