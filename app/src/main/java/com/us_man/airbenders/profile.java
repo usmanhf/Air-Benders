@@ -22,48 +22,21 @@ public class profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        Button mButton = (Button)findViewById(R.id.submit_profile);
-        mButton.setOnClickListener(
-                new View.OnClickListener()
-                {
-                    public void onClick(View view)
-                    {
-                        EditText mEdit = (EditText)findViewById(R.id.textView);
-                        EditText mPassword = (EditText)findViewById(R.id.editText);
-                        String pass = mPassword.getText().toString();
-                        String thisEmail = mEdit.getText().toString();
-                        boolean foundEntry = false;
-                        boolean correctPass = false;
-                        if(pass.equals("password")) {
-                            correctPass = true;
-                        }
-                        for (int i = 0; i < passenger_list.size(); ++i) {
-                            if (thisEmail.equals(passenger_list.get(i).getEmail())) {
-                                thisPassenger = passenger_list.get(i);
-                                foundEntry = true;
-                            }
-                        }
 
-                        if(foundEntry && correctPass) {
-                            //bestFit();
-                            //Log.i("potato", "howdy " + passenger_list.size());
-                            startActivity(new Intent(MainActivity.this, profile.class));
-                        }
-                        else {
-                            //warning message
-                            if(!foundEntry) {
-                                mEdit.setError("Incorrect Email");
-                            }
-                            else {
-                                mPassword.setError("Incorrect Password");
-                            }
-                        }
-                    }
-                });
 
         MainActivity.bestFit();
         thisPassenger = MainActivity.thisPassenger;
         sort_list = MainActivity.sorted_list;
         compared_values = MainActivity.compared_values;
+
+        Button btn = (Button)findViewById(R.id.submit_profile);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(profile.this, Flights.class));
+            }
+        });
+
     }
 }

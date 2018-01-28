@@ -110,7 +110,7 @@
             android:layout_height="wrap_content"
             android:textSize="18dp"
             android:text="Submit"
-            android:onClick="make_profile"/>
+            />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

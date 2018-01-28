@@ -1,7 +1,10 @@
 package com.us_man.airbenders;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -16,20 +19,29 @@ public class Flights extends AppCompatActivity {
 
         final int N = 13; // total number of textviews to add
 
-        final TextView[] myTextViews = new TextView[N]; // create an empty array;
+        final Button[] myButtons = new Button[N]; // create an empty array;
 
         for (int i = 0; i < N; i++) {
             // create a new textview
-            final TextView rowTextView = new TextView(this);
+            final Button rowButton = new Button(this);
 
             // set some properties of rowTextView or something
-            rowTextView.setText("Flight Option #" + i);
+            rowButton.setText("Flight Option #" + i + " "+ );
+            Button btn = (Button)findViewById(i);
+
+            btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                  //  startActivity(new Intent(Flights.this, matches.class));
+                }
+            });
+            rowButton.setId(i);
 
             // add the textview to the linearlayout
-            myLinearLayout.addView(rowTextView);
+            myLinearLayout.addView(rowButton);
 
             // save a reference to the textview for later
-            myTextViews[i] = rowTextView;
+            myButtons[i] = rowButton;
         }
     }
 }
