@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private Retrofit retrofit;
     public ArrayList<Flight> flight_list;
     public ArrayList<Passenger> passenger_list;
+    public Passenger thisPassenger;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
