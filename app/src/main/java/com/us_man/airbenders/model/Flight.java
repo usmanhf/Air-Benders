@@ -60,10 +60,12 @@ public class Flight {
             }
             else {
                 String pass = "";
+                int i = 1;
                 for(Passenger temp: passengers.keySet()) {
-                    pass+= temp.toString() + "\n";
+                    pass+= i + ": " + temp.toString() + ",\n";
+                    i++;
                 }
-                outp+= ", passengers='[\n" + pass + "\n]"
+                outp+= ", passengers='[\n" + pass + "]"
                         + '}';
             }
         return outp;
