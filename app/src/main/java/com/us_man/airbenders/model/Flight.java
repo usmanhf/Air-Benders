@@ -7,10 +7,9 @@ package com.us_man.airbenders.model;
 public class Flight {
 
     private String flightNumber;
-    private String originCity;
 
     public Flight() {
-        
+
     }
 
     public String getFlightNumber() {
@@ -21,7 +20,7 @@ public class Flight {
     public String toString() {
         return "Flight{" +
                 "flightNumber='" + flightNumber + '\''
-                + ", originCity='" + originCity + '\'' +
+                + ", originCity='" +
                 '}';
     }
 }
