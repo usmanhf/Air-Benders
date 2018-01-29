@@ -19,6 +19,6 @@ public class MatchesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_matches);
         recyclerView = (RecyclerView)findViewById(R.id.recyclerView);
 
-        //passengerAdapter = new PassengerAdapter(this, List<Passenger>);
+        //passengerAdapter = new PassengerAdapter(this, List< Passenger>);
     }
 }
