@@ -16,12 +16,14 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:orientation="vertical">
-    <TextView
 
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:text="FLIGHTS"
-        android:textSize="75dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_centerHorizontal="true"
+            android:text="FLIGHTS"
+            android:textAlignment="center"
+            android:textSize="40dp" />
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">

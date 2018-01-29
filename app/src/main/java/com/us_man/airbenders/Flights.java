@@ -31,6 +31,16 @@ public class Flights extends AppCompatActivity {
             //rowButton.setBackgroundColor(0xFFFFFFFF);
 
 
+            rowButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(view.getContext(), MatchesActivity.class);
+                    startActivity(intent);
+                }
+            });
+            rowButton.setId(i);
+
+
             // set some properties of rowTextView or something
             Flight bob = MainActivity.flight_list.get(i);
             rowButton.setText("Flight #" + bob.getFlightNumber() + " on " + bob.getDay() + "\nfrom " + bob.getOrigin() + " to " + bob.getDestination());

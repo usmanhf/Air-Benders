@@ -32,7 +32,10 @@ public class MainActivity extends AppCompatActivity {
     public static ArrayList<Passenger> sorted_list;
     public static ArrayList<Integer> compared_values;
     public static Passenger thisPassenger;
+<<<<<<< HEAD
     //public TextView[] tv;
+=======
+>>>>>>> 08d56ceb4dab7cea21bcb181e447f6241d404eb1
 
 
 
@@ -260,7 +263,6 @@ public class MainActivity extends AppCompatActivity {
             public void onFailure(Call<List<Flight>> call, Throwable t) {
             }
         });
-
 
         Button mButton = (Button)findViewById(R.id.button);
         mButton.setOnClickListener(
